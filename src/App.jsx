@@ -10,12 +10,10 @@ function App() {
   return (
     <div>
       <Header />
-      <SectionOutlet/>Az
-      *9+6
-
+      <SectionOutlet/>
       <Footer/>
     </div>
   )
 }
- 0
+ 
 export default App

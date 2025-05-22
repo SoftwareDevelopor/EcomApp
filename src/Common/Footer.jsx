@@ -29,10 +29,10 @@ export default function Footer() {
                             <h2 class="mb-6 text-sm font-semibold text-gray-900 uppercase dark:text-white">Follow us</h2>
                             <ul class="text-gray-500 dark:text-gray-400 font-medium">
                                 <li class="mb-4">
-                                    <a href="https://github.com/themesberg/flowbite" class="hover:underline ">Github</a>
+                                    <a href="https://github.com/SoftwareDevelopor" class="hover:underline ">Github</a>
                                 </li>
                                 <li>
-                                    <a href="https://discord.gg/4eeurUVvTy" class="hover:underline">Discord</a>
+                                    <a href="https://www.youtube.com/@iitjeemathsrockstar" class="hover:underline">YouTube</a>
                                 </li>
                             </ul>
                         </div>

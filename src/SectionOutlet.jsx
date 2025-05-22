@@ -262,7 +262,7 @@ function Productitems({ item }) {
     let { name, image, price, rating, id } = item
 
     let addtocard = () => {
-        console.log(item)
+        
         let cartobj = {
             name,
             image,
