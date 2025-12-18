@@ -3,6 +3,7 @@ import Header from './Common/Header'
 import { cartcontaxt } from './Maincontext'
 import Footer from './Common/Footer'
 import { useRazorpay, RazorpayOrderOptions } from 'react-razorpay'
+import { toast } from 'react-toastify'
 
 
 export default function Cart() {
@@ -72,11 +73,12 @@ export default function Cart() {
                 <div className="w-full md:w-2/3 bg-white p-5 shadow-md">
                     <h2 className="text-xl font-bold mb-4">Items in your cart</h2>
                     {/* Cart items will be displayed here */}
-                    <div className=" bg-gray-300 py-4 px-5 grid grid-cols-4 justify-between items-center">
+                    <div className=" bg-gray-300 py-4 px-5 grid grid-cols-5 text-center justify-between items-center">
                         <h1>Product Name</h1>
                         <h1>Quantity</h1>
                         <h1>Price</h1>
                         <h1>Total Price</h1>
+                        <h1>Action</h1>
                     </div>
                     {
                         cart.length >= 1 ?
@@ -140,7 +142,6 @@ export default function Cart() {
                                                         </div>
                                                     </div>
                                                     <button type="submit" class="text-white inline-flex items-center bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
-
                                                         Order Now
                                                     </button>
                                                     {isLoading && <p>Loading Razorpay...</p>}
@@ -171,7 +172,7 @@ export default function Cart() {
 }
 
 export function CartItem({ data }) {
-    let { cart } = useContext(cartcontaxt)
+    let { cart,setcart } = useContext(cartcontaxt)
 
     let { id, name, price, image, qty } = data
     let [cartitemqty, setcartitemqty] = useState(qty)
@@ -182,10 +183,17 @@ export function CartItem({ data }) {
             }
         })
     }, [cartitemqty, cart, id])
+
+    let deletecart=()=>{
+        let finalcart=cart.filter((item)=>item.id != id)
+        setcart(finalcart)
+        toast.info("This Cart Item is removed..!");
+    }
+
     console.log(cart)
     return (
-        <div className=" bg-gray-300 py-4 px-5 grid grid-cols-4 justify-between items-center">
-            <div className='flex flex-col justify-center'>
+        <div className=" bg-gray-300 py-4 px-5 grid grid-cols-5 justify-between items-center">
+            <div className='flex flex-col items-center'>
                 <figure className='h-20'>
                     <img src={image} alt="" srcset={image} className='h-full' />
                 </figure>
@@ -199,6 +207,7 @@ export function CartItem({ data }) {
             </h1>
             <h1>{price}</h1>
             <h1>{qty * price}</h1>
+            <button type="button" className='p-3 bg-sky-600 rounded-lg' onClick={deletecart}>Delete</button>
         </div>
     )
 }

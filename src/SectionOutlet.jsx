@@ -98,7 +98,6 @@ export default function SectionOutlet() {
     useEffect(() => {
         getBrand()
         getCategory()
-
     }, [])
 
     useEffect(() => {
