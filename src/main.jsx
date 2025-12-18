@@ -5,6 +5,9 @@ import App from './App.jsx'
 import { BrowserRouter, Route, Routes } from 'react-router'
 import Cart from './Cart.jsx'
 import Maincontext from './Maincontext.jsx'
+import Privacy from './Common/Privacy.jsx'
+import Terms_Condition from './Common/Terms_Condition.jsx'
+import Contact from './Common/Contact.jsx'
 
 createRoot(document.getElementById('root')).render(
 
@@ -13,6 +16,9 @@ createRoot(document.getElementById('root')).render(
       <Routes>
         <Route path="/" element={<App />} />
         <Route path="/cart" element={<Cart />} />
+        <Route path="/privacy_poliy" element={<Privacy/>}/>
+        <Route path="/termsandcondition" element={<Terms_Condition/>}/>
+        <Route path='/contact-us' element={<Contact/>}/>
       </Routes>
     </BrowserRouter>
   </Maincontext>

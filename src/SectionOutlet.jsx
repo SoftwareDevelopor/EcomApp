@@ -103,7 +103,7 @@ export default function SectionOutlet() {
 
     useEffect(() => {
         getProduct()
-    }, [sorting, categoryFilter, brandFilter, priceFilter, ratingFilter])
+    }, [sorting, categoryFilter, brandFilter, priceFilter, ratingFilter, getProduct])
 
     return (
         <>
@@ -135,7 +135,7 @@ export default function SectionOutlet() {
                 <p className='text-xl text-gray-600 flex gap-3 items-center my-5'>
                     <span className='font-bold text-black text-2xl'>Men T-shirts</span>- 126446 shirts
                 </p>
-                <p className='font-semibold text-2xl flex gap-5 my-8 grid grid-cols-[70%_auto] items-center'>
+                <p className='font-semibold text-2xl gap-5 my-8 grid grid-cols-[70%_auto] items-center'>
                     <span className='flex gap-6 items-center'>
                         <h1 >Filter</h1>
                         <h2 className='text-red-600'>Clear</h2>
@@ -148,7 +148,7 @@ export default function SectionOutlet() {
                         </button>
 
 
-                        <div id="dropdownDelay" class="z-10 bg-white divide-y divide-gray-100 rounded-lg shadow-sm w-44 dark:bg-gray-700 w-full">
+                        <div id="dropdownDelay" class="z-10 bg-white divide-y divide-gray-100 rounded-lg shadow-sm dark:bg-gray-700 w-full">
                             <ul className={count == 1 ? 'block' : 'hidden'} aria-labelledby="dropdownDelayButton">
                                 <li onClick={() => setSorting(1)}>
                                     <a href="#" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">A to Z</a>
